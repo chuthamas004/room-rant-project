@@ -1,0 +1,10 @@
+{
+    "name": "dormitory/system",
+    "description": "Dormitory Management System",
+    "type": "project",
+    "require": {
+        "php": "^7.4 || ^8.0",
+        "ext-mysqli": "*"
+    },
+    "license": "MIT"
+}

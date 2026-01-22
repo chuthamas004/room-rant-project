@@ -1,11 +1,12 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "dormitory_db";
+$servername = getenv('MYSQLHOST') ?: "localhost";
+$username = getenv('MYSQLUSER') ?: "root";
+$password = getenv('MYSQLPASSWORD') ?: "";
+$dbname = getenv('MYSQLDATABASE') ?: "dormitory_db";
+$port = getenv('MYSQLPORT') ?: 3306;
 
 // Create connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
+$conn = mysqli_connect($servername, $username, $password, $dbname, $port);
 
 // Check connection
 if (!$conn) {
@@ -13,7 +14,8 @@ if (!$conn) {
 }
 
 // Function to safely escape strings
-function escape($conn, $string) {
+function escape($conn, $string)
+{
     return mysqli_real_escape_string($conn, $string);
 }
 ?>
